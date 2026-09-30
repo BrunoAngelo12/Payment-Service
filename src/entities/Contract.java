@@ -8,12 +8,15 @@ public class Contract {
     private LocalDate date;
     private Double totalValue;
 
+    private Installment[] installment;
+
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
-    public Contract(Integer number, LocalDate date, Double totalValue) {
+    public Contract(Integer number, LocalDate date, Double totalValue, int numberOfInstallments) {
         this.number = number;
         this.date = date;
         this.totalValue = totalValue;
+        this.installment = new Installment[numberOfInstallments];
     }
 
     public Integer getNumber() {
@@ -42,7 +45,15 @@ public class Contract {
 
     @Override 
     public String toString(){
-        return "num: " + this.number + ", date: " + date.format(fmt) + ", valor: " + this.totalValue; 
+        return "Num: " + this.number + ", Date: " + date.format(fmt) + ", Value: " + this.totalValue; 
+    }
+
+    public Installment[] getInstallment() {
+        return installment;
+    }
+
+    public void setInstallment(Installment[] installment) {
+        this.installment = installment;
     }
     
 }
