@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Contract;
+
 public class Program{
 
     public static void main(String[] args){
@@ -15,12 +17,19 @@ public class Program{
         
         System.out.println("Entre com os dados do contrato:");
         System.out.print("Número: ");
-        double number = sc.nextDouble();
+        int number = sc.nextInt();
         sc.nextLine();
         System.out.print("Data (dd/MM/yyyy): ");
         LocalDate contractDate = LocalDate.parse(sc.nextLine(), fmt);
+        System.out.print("Valor do contrato: ");
+        double contractValue = sc.nextDouble();
 
-        System.out.println(contractDate.format(fmt));
+        Contract contract = new Contract(number, contractDate, contractValue);
+        System.out.println(contract.toString());
+
+        System.out.print("Entre com o número de parcelas: ");
+        int numberOfInstallments = sc.nextInt();
+        
 
         sc.close();
     }
