@@ -18,7 +18,7 @@ public class Contract {
         this.totalValue = totalValue;
         this.installment = new Installment[numberOfInstallments];
         for(int i = 0; i < numberOfInstallments; i++){
-            Installment obj = new Installment(date.plusMonths(i), totalValue / numberOfInstallments);
+            Installment obj = new Installment(date.plusMonths(i+1), totalValue / numberOfInstallments);
             installment[i] = obj;
         }
     }

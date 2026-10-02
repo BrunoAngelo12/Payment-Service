@@ -16,7 +16,7 @@ public class ContractService {
             contract.getInstallment()[i-1].setAmount(service.interest(contract.getInstallment()[i-1].getAmount(), i));
             contract.getInstallment()[i-1].setAmount(service.paymentFee(contract.getInstallment()[i-1].getAmount()));
         }
-        System.out.println("Parcelas:");
+        System.out.println("\nParcelas:");
         for(int i = 0; i < months; i++){
             System.out.print(contract.getInstallment()[i].getDueDate().format(fmt));
             System.out.printf(" %.2f\n", contract.getInstallment()[i].getAmount());
