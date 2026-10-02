@@ -7,7 +7,7 @@ public class Installment {
     private Double amount;
     
     public Installment(LocalDate dueDate, Double amount) {
-        this.dueDate = dueDate.plusMonths(1);
+        this.dueDate = dueDate;//.plusMonths(1);
         this.amount = amount;
     }
 

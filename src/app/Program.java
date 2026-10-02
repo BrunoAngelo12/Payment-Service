@@ -6,6 +6,10 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Contract;
+import entities.Installment;
+import services.ContractService;
+import services.OnlinePaymentService;
+import services.PaypalService;
 
 public class Program{
 
@@ -27,8 +31,13 @@ public class Program{
         int numberOfInstallments = sc.nextInt();
         
         Contract contract = new Contract(number, contractDate, contractValue, numberOfInstallments);
-        
 
+        ContractService obj = new ContractService(new PaypalService());
+        obj.processContract(contract, numberOfInstallments);
+        
+        /*for(Installment i : contract.getInstallment()){
+            System.out.println(i.getDueDate() + ", " + i.getAmount());
+        }*/
         sc.close();
     }
 }
