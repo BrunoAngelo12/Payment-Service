@@ -91,4 +91,4 @@ vencimento    = dataContrato.plusMonths(i)
 
 -   GitHub: [Meu perfil](https://github.com/BrunoAngelo12)
     
--   LinkedIn: [Meu perfil](https://www.linkedin.com/in/brunoangelo12/?isSelfProfile=true)
+-   LinkedIn: [Meu perfil](https://www.linkedin.com/in/brunoangelo12/)
