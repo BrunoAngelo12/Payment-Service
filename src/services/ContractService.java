@@ -13,13 +13,10 @@ public class ContractService {
 
     public void processContract(Contract contract, Integer months){
         for(int i = 1; i <= months; i++){
-            contract.getInstallment()[i-1].setAmount(service.interest(contract.getInstallment()[i-1].getAmount(), i));
-            contract.getInstallment()[i-1].setAmount(service.paymentFee(contract.getInstallment()[i-1].getAmount()));
-        }
-        System.out.println("\nParcelas:");
-        for(int i = 0; i < months; i++){
-            System.out.print(contract.getInstallment()[i].getDueDate().format(fmt));
-            System.out.printf(" %.2f\n", contract.getInstallment()[i].getAmount());
+            double originalInstallmentAmount = contract.getInstallment()[i-1].getAmount();
+            double interest = service.interest(originalInstallmentAmount, i);
+            double paymentFee = service.paymentFee(originalInstallmentAmount + interest);
+            contract.getInstallment()[i-1].setAmount(originalInstallmentAmount + paymentFee + interest);
         }
     }
 

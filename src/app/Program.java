@@ -35,6 +35,12 @@ public class Program{
         ContractService obj = new ContractService(new PaypalService());
         obj.processContract(contract, numberOfInstallments);
         
+        System.out.println("\nParcelas:");
+        for(int i = 0; i < numberOfInstallments; i++){
+            System.out.print(contract.getInstallment()[i].getDueDate().format(fmt));
+            System.out.printf(" %.2f\n", contract.getInstallment()[i].getAmount());
+        }
+
         sc.close();
     }
 }
